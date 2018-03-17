@@ -30,7 +30,7 @@ if [ $SWAPT -eq 0  ] ; then
         exit 0
 fi
 
-SR="/dev/"
+SR="\/dev\/"
 PS="/proc/swap*"
 SO="swapoff" 
 
