@@ -1,0 +1,7 @@
+id=swaptorpedo
+name=Swap Torpedo
+version=v1.0
+versionCode=1
+author=EarlyMon
+description=Universal swap (zram, vmswap, etc etc) destroyer - run faster and more reliably 
+minMagisk=1600
