@@ -1,5 +1,7 @@
 # Swap Torpedo - A Magisk Module
 
+## Universal swap (zram, vmswap, etc etc) destroyer - run faster and more reliably!
+
 By EarlyMon - version 1.0
 
 Swap is a way to expand your RAM using clever software and some unused storage space. You see it a lot in Android as zram or vmswap.
