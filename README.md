@@ -33,7 +33,7 @@ No. No it does not.
 
 Swap Torpedo is the answer. 
 
-I designed it to be universal for any Android that Magisk version 16 and above supports. If you're not using swap, or if you installed your own swap solution that writes to a special file in storage, Swap Torpedo harmlessly does nothing. 
+I designed it to be universal for any Android that Magisk version 15 and above supports. If you're not using swap, or if you installed your own swap solution that writes to a special file in storage, Swap Torpedo harmlessly does nothing. 
 
 Verify your swap situation with [RAM Truth](https://play.google.com/store/apps/details?id=sa.ramtruth) available on the Play Store. It's free and it will never spy on you or ask for special permissions.
 
