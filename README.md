@@ -42,6 +42,9 @@ Donations are humbly and gratefully received at EarlyMonAF@gmail.com but not exp
 This module was developed entirely on an honor View 10. 
 
 
-Changelog - 
+## Changelog - 
 
 v1.0 - 2018 March 17 -  initial release 
+
+## Support - 
+[XDA thread](https://forum.xda-developers.com/apps/magisk/module-swap-torpedo-run-faster-reliably-t3766883) 
