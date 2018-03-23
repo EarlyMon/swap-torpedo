@@ -42,6 +42,13 @@ Donations are humbly and gratefully received at EarlyMonAF@gmail.com but not exp
 This module was developed entirely on an honor View 10. 
 
 
+## Notes
+
+Pixels not supported at present
+
+May not work on all devices
+
+
 ## Changelog - 
 
 v1.0 - 2018 March 17 -  initial release 
