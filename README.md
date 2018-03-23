@@ -42,7 +42,7 @@ Donations are humbly and gratefully received at EarlyMonAF@gmail.com but not exp
 This module was developed entirely on an honor View 10. 
 
 
-## Notes
+## Notes -
 
 Pixels not supported at present
 
