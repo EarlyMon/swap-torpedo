@@ -19,20 +19,34 @@
 # awk is required, toybox is ok if it has it
 
 # Returns
-#   0 - no swap, or no swap in /dev, or swap killed off
+#   0 - no swap, or no swap in /dev, or time's up
 
 # Exit if no swap in use,
 #   wish virtual beer upon the enlightened rom devs
 
-SWAPT=`grep SwapTotal /proc/meminfo | tr -d "[a-zA-Z :]"`
+alias SWAPT='grep -i SwapTotal /proc/meminfo | tr -d "[a-zA-Z :]"'
 
-if [ $SWAPT -eq 0  ] ; then
+TL=45
+Step=3
+k=0
+
+while [ `SWAPT` -eq 0  ]
+do
+    k=$(( $k + $Step ))
+    if [ $k -gt $TL  ] ; then
         exit 0
-fi
+    fi
+    sleep $Step
+done
 
-SR="/dev/"
+SR="\/dev\/"
 PS="/proc/swap*"
-SO="swapoff" 
+
+if [ -f /system/bin/swapoff ] ; then
+    SO="/system/bin/swapoff"
+else
+    SO="swapoff"
+fi
 
 # You would think that there's only ever zram0
 # And you would be wrong
@@ -42,15 +56,42 @@ SO="swapoff"
 # Find all swapregions and target each one for swapoff
 # Don't assume it's in the first field of swaps, find it
 
-eval `awk -v SBD="$SR" -v SRO="$SO" ' $0 ~ SBD {
+DIE=`awk -v SBD="$SR" ' $0 ~ SBD {
       for ( i=1;i<=NF;i++ )
         {
-          if ( $i ~ SBD )
+          if ( $i ~ ( "^" SBD ) )
            {
-              printf "%s %s;", SRO, $i
+              printf "%s;", $i
            }
         }
       }' $PS`
+
+saveifs=$IFS
+IFS=';'
+
+# I could have put all this in awk and just eval'd it 
+# But where's the fun in that
+
+for i in $DIE
+do
+    case $i in
+        *zram*)
+              j=`echo $i | sed 's/.*zram//'`
+             ( ( 
+                 echo $j > /sys/class/zram-control/hot_remove
+                 echo 1 > /sys/block/zram${j}/reset
+                 $SO $i
+              ) & )
+              ;;
+        *)
+              if [ -n $i ]; then
+                  ( ( $SO $i ) & ) 
+              fi
+              ;;
+    esac
+done
+
+IFS=$saveifs
 
 # Enjoy a better Android experience, and be kind to someone
 

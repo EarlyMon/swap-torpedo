@@ -1,7 +1,7 @@
 id=swaptorpedo
 name=Swap Torpedo
-version=v1.0
-versionCode=1
-author=EarlyMon
-description=Universal swap (zram, vmswap, etc etc) destroyer - run faster and more reliably 
-minMagisk=1600
+version=v1.1
+versionCode=2
+author=EarlyMon @ xda-developers
+description=Universal compressed-memory swap (zram, etc etc) destroyer - run faster and more reliably 
+minMagisk=1500
