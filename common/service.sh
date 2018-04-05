@@ -77,7 +77,7 @@ do
     case $i in
         *zram*)
               j=`echo $i | sed 's/.*zram//'`
-             ( ( 
+              ( ( 
                  echo $j > /sys/class/zram-control/hot_remove
                  echo 1 > /sys/block/zram${j}/reset
                  $SO $i
