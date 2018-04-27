@@ -26,7 +26,7 @@
 
 alias SWAPT='grep -i SwapTotal /proc/meminfo | tr -d "[a-zA-Z :]"'
 
-TL=45
+TL=60
 Step=3
 k=0
 
@@ -62,6 +62,7 @@ DIE=`awk -v SBD="$SR" ' $0 ~ SBD {
           if ( $i ~ ( "^" SBD ) )
            {
               printf "%s;", $i
+              break
            }
         }
       }' $PS`
